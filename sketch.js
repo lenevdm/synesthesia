@@ -6,9 +6,12 @@ var vis = null;
 var sound = null;
 //variable for p5 fast fourier transform
 var fourier;
+var img;
 
 function preload(){
 	sound = loadSound('assets/fever.mp3');
+	img = loadImage('assets/neonbg.jpeg');
+
 }
 
 function setup(){
@@ -24,6 +27,9 @@ function setup(){
 	 vis.add(new Spectrum());
 	 vis.add(new WavePattern());
 	 vis.add(new Needles());
+	 vis.add(new ParticleWave());
+	//  vis.add(new Sine());
+	 vis.add(new Perlin());
 
 }
 
