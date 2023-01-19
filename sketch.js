@@ -8,7 +8,7 @@ var sound = null;
 var fourier;
 
 function preload(){
-	sound = loadSound('assets/stomper_reggae_bit.mp3');
+	sound = loadSound('assets/fever.mp3');
 }
 
 function setup(){
