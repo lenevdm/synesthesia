@@ -25,6 +25,12 @@ var ridgeSpeed;
 // Noiseline
 var noiseStep;
 var prog;
+
+// Fireworks
+// var sampleBuffer = [];
+var beatDetect;
+
+//p5.gui
 var gui;
 
 function preload(){
@@ -40,6 +46,12 @@ function setup(){
 
 	 //instantiate the fft object
 	 fourier = new p5.FFT();
+
+	 // constrain the framerate
+	 frameRate(60);
+
+	 // do beat detection
+	 beatDetect = new BeatDetect();
 
 	 //initialise variables
 	 noiseStep = 0.01;

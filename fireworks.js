@@ -1,16 +1,25 @@
-//draw the blocks visualisation to the screen
+//draw the Fireworks visualisation to the screen with beat detection
 function Fireworks(){
     
     //vis name
     this.name = "fireworks";
 
     //draw
-    //draw the wave form to the screen
 	this.draw = function() {
-		push();
-        fill(255,0,0);
-		ellipse(width/2,height/2 ,55,55);
-		pop();
+		
+        var spectrum = fourier.analyze();
+
+        if (beatDetect.detectBeat(spectrum))
+        {
+            fill(255,0,0);
+            ellipse(width/2, height/2, 300, 300);
+        }
+        
+        
+
+
+        
+		
 	};
 
 
