@@ -1,15 +1,20 @@
-//global for the controls and input 
+// Global variables 
+// Controls and input 
 var controls = null;
-//store visualisations in a container
+
+// Visualisations container
 var vis = null;
-//variable for the p5 sound object
+
+// p5 sound object
 var sound = null;
-//variable for p5 fast fourier transform
+
+// p5 fast fourier transform
 var fourier;
-// variables for the particles visualisation
+
+// Particles visualisation
 var img;
 
-// variables for the ridgeplot
+// Ridgeplot
 var ridgeOutput ;
 var ridgeStartX;
 var ridgeStartY;
@@ -17,7 +22,7 @@ var ridgeEndY;
 var ridgeSpectrumWidth;
 var ridgeSpeed;
 
-// variables for the noiseline visualisation
+// Noiseline
 var noiseStep;
 var prog;
 var gui;
@@ -47,8 +52,10 @@ function setup(){
 	 ridgeSpeed = 0.7;
 
 	 //Use p5.gui
-	 gui = createGui('Audio Visualizer');
-	 gui.addGlobals('noiseStep','prog');
+	//  gui = createGui('Audio Visualizer');
+	//  sliderRange(0.001, 1, 0.001);
+	//  gui.addGlobals('noiseStep');
+	 
  
 	 //create a new visualisation container and add visualisations
 	 vis = new Visualisations();
