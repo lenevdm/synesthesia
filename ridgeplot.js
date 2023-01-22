@@ -8,12 +8,11 @@ function Ridgeplot(){
     //draw the ridge plot to the screen
 	this.draw = function() {
 		push();
-        // rect(ridgeStartX, ridgeEndY, ridgeSpectrumWidth, height-ridgeEndY*2);
-        // fill(255);
         stroke(255);
         strokeWeight(2);
+        noFill();
 
-        if (frameCount % 30 == 0){
+        if (frameCount % 10 == 0){
             this. addWave();
         }
         for(var i = 0; i < ridgeOutput.length; i++){
@@ -29,17 +28,39 @@ function Ridgeplot(){
             }
         }
 
-        
-
-
 		pop();
 	};
 
     this.addWave = function() {
-        ridgeOutput.push([
-                    {x: ridgeStartX, y: ridgeStartY}, 
-                    {x: ridgeStartX+ridgeSpectrumWidth, y: ridgeStartY}
-                ])
+        // ridgeOutput.push([
+        //             {x: ridgeStartX, y: ridgeStartY}, 
+        //             {x: ridgeStartX+ridgeSpectrumWidth, y: ridgeStartY}
+        //         ])
+        var w = fourier.waveform();
+        var output_wave = [];
+        var smallScale = 3;
+        var bigScale = 40;
+
+        for (var i = 0; i < w.length; i++){
+            if(i % 20 == 0){
+                var x = map(i, 0, 1024, ridgeStartX, ridgeStartX + ridgeSpectrumWidth);
+                if(i < 1024*0.25 || i > 1024*0.75){
+                    var y = map(w[i], -1, 1, -smallScale, smallScale);
+                    output_wave.push({
+                        x: x, 
+                        y : ridgeStartY + y
+                    })
+                }
+                else {
+                    var y = map(w[i], -1,   1,-bigScale, bigScale);
+                    output_wave.push({
+                        x: x,
+                        y: ridgeStartY + y
+                    })
+                }
+            }
+        }
+        ridgeOutput.push(output_wave);
 
 }
 
