@@ -20,6 +20,7 @@ var ridgeSpeed;
 // variables for the noiseline visualisation
 var noiseStep;
 var prog;
+var gui;
 
 function preload(){
 	sound = loadSound('assets/fever.mp3');
@@ -44,6 +45,10 @@ function setup(){
 	 ridgeStartY = height - ridgeEndY;
 	 ridgeSpectrumWidth = (width/5)*3;
 	 ridgeSpeed = 0.7;
+
+	 //Use p5.gui
+	 gui = createGui('Audio Visualizer');
+	 gui.addGlobals('noiseStep','prog');
  
 	 //create a new visualisation container and add visualisations
 	 vis = new Visualisations();
