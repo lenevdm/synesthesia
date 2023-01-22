@@ -7,9 +7,9 @@ function ParticleWave(){
       stroke(255);
       ellipse(width / 2, height / 2, 3,);
 
-      
+      push();
       translate(width/2, height/2);
-      
+      pop();
 
       //Beat detection
       fourier.analyze();
@@ -33,6 +33,7 @@ function ParticleWave(){
       var wave = fourier.waveform();
       
       //Create the waveform circle
+      push();
       stroke(255);
       noFill();
       for (var t = -1; t <= 1; t+= 2){
@@ -46,6 +47,7 @@ function ParticleWave(){
         }
         endShape()
       }
+      pop();
       
       //Draw a particle every new frame
       var p = new Particle();

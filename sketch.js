@@ -27,7 +27,7 @@ var noiseStep;
 var prog;
 
 // Fireworks
-// var sampleBuffer = [];
+// var sampleBuffer = []; 
 var beatDetect;
 var fireworks;
 
@@ -84,7 +84,7 @@ function setup(){
 	 vis.add(new Fireworks());
 	 vis.add(new Blocks());
 	 vis.add(new Noiseline());
-	//  vis.add(new ParticleWave());
+	 vis.add(new ParticleWave());
 	//  vis.add(new Sine());
 	//  vis.add(new Perlin());
 

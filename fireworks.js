@@ -10,7 +10,7 @@ function Fireworks(){
     {
         var f_colour = color(random(0,255), random(0,255), random(0,255));
         var f_x = random(width * 0.2, width * 0.8);
-        var f_y = fandom(height * 0.2, height * 0.8);
+        var f_y = random(height * 0.2, height * 0.8);
         
         fireworks.push(new Firework(f_colour, f_x, f_y));
     }
