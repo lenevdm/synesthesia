@@ -63,6 +63,7 @@ function setup(){
 	 vis.add(new WavePattern());
 	 vis.add(new Needles());
 	 vis.add(new Ridgeplot());
+	 vis.add(new Fireworks());
 	 vis.add(new Blocks());
 	 vis.add(new Noiseline());
 	//  vis.add(new ParticleWave());
