@@ -4,6 +4,7 @@ function BeatDetect(){
     this.detectBeat = function(spectrum){
 
         var sum = 0;
+        var isBeat = false;
 
         for (var i = 0; i < spectrum.length; i++){
             //The sum for this particular moment of the sound
@@ -12,25 +13,15 @@ function BeatDetect(){
         if(sampleBuffer.length == 60){
             // Detect a beat
             var sampleSum = 0;
-            var isBeat = false;
+            
             for (var i = 0; i < sampleBuffer.length; i++)
             {
                 sampleSum += sampleBuffer[i];
             }
             var sampleAverage = sampleSum / sampleBuffer.length;
             
-            // Determine variance
-            var varianceSum = 0;
-            for (var i = 0; i < sampleBuffer.length; i++)
-            {
-                varianceSum += sampleBuffer[i] - sampleAverage;
-            }
-            var variance = varianceSum/sampleBuffer.length;
+            var c = calculateConstant(sampleAverage);
 
-            var m = -0.15 / (25-200);
-            var b = 1 + (m * 200);
-            var c = (m * variance) + b;
-            
             if (sum > sampleAverage*c){
                 // Set the beat
                 isBeat = true;
@@ -45,4 +36,19 @@ function BeatDetect(){
         return isBeat;
 
     };
+
+    function calculateConstant(sampleAverage){
+        // Calculate variance
+        var varianceSum = 0;
+        for (var i = 0; i < sampleBuffer.length; i++)
+        {
+            varianceSum += sampleBuffer[i] - sampleAverage;
+        }
+        var variance = varianceSum/sampleBuffer.length;
+        
+        // Calculate constant
+        var m = -0.15 / (25-200);
+        var b = 1 + (m * 200);
+        return (m * variance) + b;
+    }
 }
