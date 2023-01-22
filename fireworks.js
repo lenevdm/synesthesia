@@ -1,5 +1,7 @@
 //draw the Fireworks visualisation to the screen with beat detection
 function Fireworks(){
+
+    var fireworks = [];
     
     //vis name
     this.name = "fireworks";
@@ -11,15 +13,11 @@ function Fireworks(){
 
         if (beatDetect.detectBeat(spectrum))
         {
-            fill(255,0,0);
-            ellipse(width/2, height/2, 300, 300);
+            // fill(255,0,0);
+            // ellipse(width/2, height/2, 300, 300);
+
         }
         
-        
-
-
-        
-		
 	};
 
 

@@ -1,3 +1,6 @@
+//inspiration for beat detection comes from 
+// http://archive.gamedev.net/archive/reference/programming/features/beatdetection/
+
 function BeatDetect(){
     var sampleBuffer = [];
     
