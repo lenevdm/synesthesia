@@ -31,11 +31,9 @@ function Ridgeplot(){
 		pop();
 	};
 
+    /*addWave() creates an array of scaled x and y coordinates 
+    used to draw the ridge plot lines */
     this.addWave = function() {
-        // ridgeOutput.push([
-        //             {x: ridgeStartX, y: ridgeStartY}, 
-        //             {x: ridgeStartX+ridgeSpectrumWidth, y: ridgeStartY}
-        //         ])
         var w = fourier.waveform();
         var output_wave = [];
         var smallScale = 3;
