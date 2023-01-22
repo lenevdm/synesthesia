@@ -1,4 +1,4 @@
-function particle(x, y, colour, angle, speed){
+function Particle(x, y, colour, angle, speed){
 
     var x = x;
     var y =y;
@@ -15,6 +15,7 @@ function particle(x, y, colour, angle, speed){
 
     function update(){
         this.speed -= 0.1;
-        //TODO update x and y
+        x += cos(angle) * speed;
+        y += sin(angle) * speed;
     }
 }

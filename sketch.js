@@ -29,6 +29,7 @@ var prog;
 // Fireworks
 // var sampleBuffer = [];
 var beatDetect;
+var fireworks;
 
 //p5.gui
 var gui;
@@ -42,6 +43,7 @@ function preload(){
 function setup(){
 	 createCanvas(windowWidth, windowHeight);
 	 background(0);
+	 angleMode(DEGREES);
 	 controls = new ControlsAndInput();
 
 	 //instantiate the fft object
@@ -52,6 +54,10 @@ function setup(){
 
 	 // do beat detection
 	 beatDetect = new BeatDetect();
+
+	 // fireworks
+	 fireworks = new Fireworks();
+	 
 
 	 //initialise variables
 	 noiseStep = 0.01;
