@@ -6,7 +6,20 @@ var vis = null;
 var sound = null;
 //variable for p5 fast fourier transform
 var fourier;
+// variables for the particles visualisation
 var img;
+
+// variables for the ridgeplot
+var ridgeOutput ;
+var ridgeStartX;
+var ridgeStartY;
+var ridgeEndY;
+var ridgeSpectrumWidth;
+var ridgeSpeed;
+
+// variables for the noiseline visualisation
+var noiseStep;
+var prog;
 
 function preload(){
 	sound = loadSound('assets/fever.mp3');
@@ -22,14 +35,27 @@ function setup(){
 	 //instantiate the fft object
 	 fourier = new p5.FFT();
 
+	 //initialise variables
+	 noiseStep = 0.01;
+     prog = 0;
+	 ridgeOutput = [];
+	 ridgeStartX = width/5;
+	 ridgeEndY = height/5;
+	 ridgeStartY = height - ridgeEndY;
+	 ridgeSpectrumWidth = (width/5)*3;
+	 ridgeSpeed = 0.7;
+ 
 	 //create a new visualisation container and add visualisations
 	 vis = new Visualisations();
 	 vis.add(new Spectrum());
 	 vis.add(new WavePattern());
 	 vis.add(new Needles());
-	 vis.add(new ParticleWave());
+	 vis.add(new Ridgeplot());
+	 vis.add(new Blocks());
+	 vis.add(new Noiseline());
+	//  vis.add(new ParticleWave());
 	//  vis.add(new Sine());
-	 vis.add(new Perlin());
+	//  vis.add(new Perlin());
 
 }
 
