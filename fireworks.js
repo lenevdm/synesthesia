@@ -19,7 +19,7 @@ function Fireworks(){
     {
         for (var i = 0; i < fireworks.length; i++)
         {
-            fireworks[i].draw();
+            this.fireworks[i].draw();
             if (fireworks[i].depleted)
             {
                 fireworks.splice(i, 1);
@@ -34,7 +34,7 @@ function Fireworks(){
 
         if (beatDetect.detectBeat(spectrum))
         {
-            fireworks.addFirework();
+            this.addFirework();
 
         }
         
