@@ -1,22 +1,25 @@
-//draw the blocks visualisation to the screen
+// Draw the ridgeplot visualisation to the screen
 function Ridgeplot(){
     
-    //vis name
+    // Visualisation name
     this.name = "ridgeplot";
 
-    //draw
-    //draw the ridge plot to the screen
+    // Draw the ridge plot to the screen
 	this.draw = function() {
 		push();
-        stroke(255);
         strokeWeight(2);
         noFill();
 
-        if (frameCount % 10 == 0){
+        // Only add a wave line every tenth frame
+        if (frameCount % 20 == 0){
             this. addWave();
+            
         }
+        // Iterate through the array and draw the liens
         for(var i = 0; i < ridgeOutput.length; i++){
             var o = ridgeOutput[i];
+            // Assigne a random and changing stroke colour.
+            stroke(random(0,255),random(0,255),random(0,255));
             beginShape();
             for(var j = 0; j < o.length; j++){
                 o[j].y -= ridgeSpeed;
@@ -31,8 +34,8 @@ function Ridgeplot(){
 		pop();
 	};
 
-    /*addWave() creates an array of scaled x and y coordinates 
-    used to draw the ridge plot lines */
+    // Create an array of scaled x and y coordinates 
+    // used to draw the ridge plot lines
     this.addWave = function() {
         var w = fourier.waveform();
         var output_wave = [];
@@ -40,6 +43,7 @@ function Ridgeplot(){
         var bigScale = 40;
 
         for (var i = 0; i < w.length; i++){
+            // Check for smallScale or bigScale
             if(i % 20 == 0){
                 var x = map(i, 0, 1024, ridgeStartX, ridgeStartX + ridgeSpectrumWidth);
                 if(i < 1024*0.25 || i > 1024*0.75){
@@ -61,6 +65,4 @@ function Ridgeplot(){
         ridgeOutput.push(output_wave);
 
 }
-
-
 }
