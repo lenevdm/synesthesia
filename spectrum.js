@@ -3,28 +3,23 @@ function Spectrum(){
 
 	this.draw = function(){
 		push();
+		// Apply the fourier analysis to the spectrum variable.
 		var spectrum = fourier.analyze();
 		noStroke();
-		//fill(0,255,0)
-		// for (var i = 0; i< spectrum.length; i++){
-		// 	var x = map(i, 0, spectrum.length, 0, width);
-		//     var h = -height + map(spectrum[i], 0, 255, height, 0);
-		//     rect(x, height, width / spectrum.length, h );
-  // 		}
-
-
-		for(var i = 0; i<spectrum.length; i++){
-
-			//fade the colour of the bin from green to red
+	
+		fill(0,0,255)
+		for (var i = 0; i< spectrum.length; i++){
+			
+			//Map colours based on the spectrum
 			var g = map(spectrum[i], 0, 255, 255, 0);
-			fill(spectrum[i], g, 0);
-
-			//draw each bin as a rectangle from the left of the screen
-			//across
-			var y = map(i, 0, spectrum.length, 0, height);
-			var w = map(spectrum[i], 0, 255, 0, width);
-			rect(0, y, w, height/spectrum.length);
-		}  		
+			fill(spectrum[i], 0, g);
+			
+			//Draw rectagles on the screen based on the frequency bins
+			var x = map(i, 0, spectrum.length, 0, width)+ (width/spectrum.length)*i + 3*i;
+			var h = -height + map(spectrum[i], 0, 255, height, 0);
+			rect(x, height, (width / spectrum.length)*1.5, h*1.5);
+		}
+		
 		pop();
 	};
 }
