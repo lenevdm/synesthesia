@@ -47,7 +47,7 @@ function preload(){
 function setup(){
 	 createCanvas(windowWidth, windowHeight);
 	 background(0);
-	 angleMode(DEGREES);
+	//  angleMode(DEGREES);
 	 controls = new ControlsAndInput();
 
 	 //instantiate the fft object
