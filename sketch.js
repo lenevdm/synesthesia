@@ -60,7 +60,7 @@ function setup(){
 	 beatDetect = new BeatDetect();
 
 	 // fireworks
-	 fireworks = new Fireworks();
+	//  fireworks = new Fireworks();
 	 
 
 	 //initialise variables
@@ -85,7 +85,7 @@ function setup(){
 	 vis.add(new WavePattern());
 	 vis.add(new Needles());
 	 vis.add(new Ridgeplot());
-	 vis.add(new Fireworks());
+	//  vis.add(new Fireworks());
 	 vis.add(new Blocks());
 	 vis.add(new Noiseline());
 	 vis.add(new ParticleWave());
