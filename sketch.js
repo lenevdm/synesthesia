@@ -11,6 +11,9 @@ var sound = null;
 // p5 fast fourier transform
 var fourier;
 
+//Waveform
+var bg;
+
 // Particles visualisation
 var img;
 
@@ -37,6 +40,7 @@ var gui;
 function preload(){
 	sound = loadSound('assets/fever.mp3');
 	img = loadImage('assets/neonbg.jpeg');
+	bg = loadImage("assets/first.jpg");
 
 }
 
