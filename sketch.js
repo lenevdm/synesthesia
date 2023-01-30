@@ -11,8 +11,8 @@ var sound = null;
 // p5 fast fourier transform
 var fourier;
 
-//Waveform
-var bg;
+//Waveform backgroung graphic
+var backgroundImage ;
 
 // Set angle mode
 var angleType;
@@ -40,10 +40,13 @@ var fireworks;
 //p5.gui
 var gui;
 
+// Blocks
+var amplitude;
+
 function preload(){
 	sound = loadSound('assets/fever.mp3');
 	img = loadImage('assets/neonbg.jpeg');
-	bg = loadImage("assets/first.jpg");
+	backgroundImage = loadImage("assets/first.jpg");
 
 }
 
@@ -75,7 +78,8 @@ function setup(){
 	 ridgeStartY = height - ridgeEndY;
 	 ridgeSpectrumWidth = (width/5)*3;
 	 ridgeSpeed = 0.7;
-	 angleType = 'RADIANS'
+	//  angleType = 'RADIANS'
+	amplitude = new p5.Amplitude();
 
 	 //Use p5.gui
 	//  gui = createGui('Audio Visualizer');

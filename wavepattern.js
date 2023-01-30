@@ -8,7 +8,7 @@ function WavePattern() {
 		push();
 
 		// Display the background image
-		image(bg, 0, 0);
+		image(backgroundImage, 0, 0);
 		
 		// Settings for the waveform
 		noFill();
