@@ -14,6 +14,9 @@ var fourier;
 //Waveform
 var bg;
 
+// Set angle mode
+var angleType;
+
 // Particles visualisation
 var img;
 
@@ -47,7 +50,7 @@ function preload(){
 function setup(){
 	 createCanvas(windowWidth, windowHeight);
 	 background(0);
-	//  angleMode(DEGREES);
+	 
 	 controls = new ControlsAndInput();
 
 	 //instantiate the fft object
@@ -72,6 +75,7 @@ function setup(){
 	 ridgeStartY = height - ridgeEndY;
 	 ridgeSpectrumWidth = (width/5)*3;
 	 ridgeSpeed = 0.7;
+	 angleType = 'RADIANS'
 
 	 //Use p5.gui
 	//  gui = createGui('Audio Visualizer');

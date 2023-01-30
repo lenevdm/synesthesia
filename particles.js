@@ -1,7 +1,13 @@
 var particles = []; 
 
+
+
 function ParticleWave(){
     this.name = "particlewave";
+
+    
+    angleMode(DEGREES)
+    
 
     this.draw =function(){
       stroke(255);
