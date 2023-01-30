@@ -23,9 +23,14 @@ function ControlsAndInput(){
 			this.menuDisplayed = !this.menuDisplayed;
 		}
 
-		if(keycode > 48 && keycode < 58){
+		if(keycode > 48 && keycode < 58)
+		{
 			var visNumber = keycode - 49;
 			vis.selectVisual(vis.visuals[visNumber].name); 
+		}
+		if(keycode == 54 )
+		{
+			angleType = 'DEGREES'
 		}
 	};
 

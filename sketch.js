@@ -75,7 +75,7 @@ function setup(){
 	 ridgeStartY = height - ridgeEndY;
 	 ridgeSpectrumWidth = (width/5)*3;
 	 ridgeSpeed = 0.7;
-	//  angleType = 'RADIANS'
+	 angleType = 'RADIANS'
 	amplitude = new p5.Amplitude();
 	amplitudes = [];
 	for (var i = 0; i < 512; i++)

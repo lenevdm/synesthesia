@@ -1,33 +1,31 @@
 var particles = []; 
 
-
-
 function ParticleWave(){
     this.name = "particlewave";
 
-    
+    push();
     angleMode(DEGREES)
     
-
     this.draw =function(){
       stroke(255);
       ellipse(width / 2, height / 2, 3,);
 
-      push();
       translate(width/2, height/2);
-      pop();
+      
 
       //Beat detection
       fourier.analyze();
       amp = fourier.getEnergy(20, 200);
 
       //Draw and rotate background image with beats
-      push();
+      
       if (amp > 230){
         rotate(random(-0.5, 0.5));
       }
-      image(img, 0, 0, width, height);
-      pop();
+      // push();
+      // translate(width * 2, height * 2);
+      // image(img, 0, 0, width, height);
+      // pop();
       
       //Add transparent overlay that will change alpha with amplitude
       var alpha = map(amp, 0, 255, 180, 150);
@@ -39,7 +37,7 @@ function ParticleWave(){
       var wave = fourier.waveform();
       
       //Create the waveform circle
-      push();
+      
       stroke(255);
       noFill();
       for (var t = -1; t <= 1; t+= 2){
@@ -53,7 +51,7 @@ function ParticleWave(){
         }
         endShape()
       }
-      pop();
+      
       
       //Draw a particle every new frame
       var p = new Particle();
@@ -109,5 +107,5 @@ function ParticleWave(){
         ellipse(this.pos.x, this.pos.y, this.w);
       }
     }
-    
+    pop();
 }
