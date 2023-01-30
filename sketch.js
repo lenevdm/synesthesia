@@ -91,10 +91,9 @@ function setup(){
 	 vis.add(new Ridgeplot());
 	//  vis.add(new Fireworks());
 	 vis.add(new Amplitude());
-	 vis.add(new Noiseline());
 	 vis.add(new ParticleWave());
 	//  vis.add(new Sine());
-	//  vis.add(new Perlin());
+	 vis.add(new Perlin());
 
 }
 
