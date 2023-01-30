@@ -28,20 +28,17 @@ var ridgeEndY;
 var ridgeSpectrumWidth;
 var ridgeSpeed;
 
-// Noiseline
-var noiseStep;
-var prog;
-
 // Fireworks
 // var sampleBuffer = []; 
 var beatDetect;
 var fireworks;
 
-//p5.gui
-var gui;
-
-// Blocks
+// Amplitude
 var amplitude;
+var amplitudes;
+var noiseStep;
+var prog;
+
 
 function preload(){
 	sound = loadSound('assets/fever.mp3');
@@ -80,13 +77,12 @@ function setup(){
 	 ridgeSpeed = 0.7;
 	//  angleType = 'RADIANS'
 	amplitude = new p5.Amplitude();
-
-	 //Use p5.gui
-	//  gui = createGui('Audio Visualizer');
-	//  sliderRange(0.001, 1, 0.001);
-	//  gui.addGlobals('noiseStep');
+	amplitudes = [];
+	for (var i = 0; i < 512; i++)
+	{
+		amplitudes.push(0);
+	}
 	 
- 
 	 //create a new visualisation container and add visualisations
 	 vis = new Visualisations();
 	 vis.add(new Spectrum());
@@ -94,7 +90,7 @@ function setup(){
 	 vis.add(new Needles());
 	 vis.add(new Ridgeplot());
 	//  vis.add(new Fireworks());
-	 vis.add(new Blocks());
+	 vis.add(new Amplitude());
 	 vis.add(new Noiseline());
 	 vis.add(new ParticleWave());
 	//  vis.add(new Sine());
