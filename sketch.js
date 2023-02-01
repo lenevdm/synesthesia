@@ -40,7 +40,7 @@ var prog;
 function preload(){
 	sound = loadSound('assets/fever.mp3');
 	img = loadImage('assets/neonbg.jpeg');
-	backgroundImage = loadImage("assets/first.jpg");
+	backgroundImage = loadImage("assets/sw.jpg");
 
 }
 

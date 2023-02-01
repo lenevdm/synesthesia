@@ -7,12 +7,22 @@ function WavePattern() {
 	this.draw = function() {
 		push();
 
-		// Display the background image
-		image(backgroundImage, 0, 0);
+		//Beat detection
+		fourier.analyze();
+		amp = fourier.getEnergy(20, 200);
+  
+		//Drawbackground image
+		image(backgroundImage, 0, 0, windowWidth, windowHeight);
+	
+		//Add transparent overlay that will change alpha with amplitude
+		var alpha = map(amp, 0, 255, 10, 150);
+		fill(0, alpha);
+		noStroke();
+		rect(0, 0, width, height);
 		
 		// Settings for the waveform
 		noFill();
-		stroke(221,160,221);
+		stroke(43, 234, 239); //light teal
 		strokeWeight(3);
 
 		beginShape();
