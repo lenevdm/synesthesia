@@ -28,10 +28,6 @@ function ControlsAndInput(){
 			var visNumber = keycode - 49;
 			vis.selectVisual(vis.visuals[visNumber].name); 
 		}
-		if(keycode == 54 )
-		{
-			angleType = 'DEGREES'
-		}
 	};
 
 	//draws the playback button and potentially the menu

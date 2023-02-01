@@ -4,7 +4,6 @@ function ParticleWave(){
     this.name = "particlewave";
 
     push();
-    angleMode(DEGREES)
     
     this.draw =function(){
       stroke(255);
@@ -12,45 +11,31 @@ function ParticleWave(){
 
       translate(width/2, height/2);
       
-
-      //Beat detection
+      // Beat detection
       fourier.analyze();
       amp = fourier.getEnergy(20, 200);
-
-      //Draw and rotate background image with beats
-      
-      if (amp > 230){
-        rotate(random(-0.5, 0.5));
-      }
-      // push();
-      // translate(width * 2, height * 2);
-      // image(img, 0, 0, width, height);
-      // pop();
-      
-      //Add transparent overlay that will change alpha with amplitude
-      var alpha = map(amp, 0, 255, 180, 150);
-      fill(0, alpha);
-      noStroke();
-      rect(0, 0, width, height);
     
-      //capture the FFT waveform data
+      // FFT waveform
       var wave = fourier.waveform();
       
       //Create the waveform circle
-      
       stroke(255);
       noFill();
-      for (var t = -1; t <= 1; t+= 2){
+      for (var t = -1; t <= 1; t+= 2)
+      {
         beginShape()
-        for (var i = 0; i <= 180; i++){
+        for (var i = 0; i <= 180; i++)
+        {
           var index = floor(map(i, 0, 180, 0, wave.length - 1));
           var r = map(wave[index], -1, 1, 150, 350);
-          var x = r *sin(i) * t;
-          var y = r * cos(i);
+          var x = r * Math.sin(radians(i)) * t;
+          var y = r * Math.cos(radians(i));
           vertex(x, y);
         }
         endShape()
       }
+
+
       
       
       //Draw a particle every new frame

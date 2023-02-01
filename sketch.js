@@ -14,9 +14,6 @@ var fourier;
 //Waveform backgroung graphic
 var backgroundImage ;
 
-// Set angle mode
-var angleType;
-
 // Particles visualisation
 var img;
 
@@ -75,7 +72,6 @@ function setup(){
 	 ridgeStartY = height - ridgeEndY;
 	 ridgeSpectrumWidth = (width/5)*3;
 	 ridgeSpeed = 0.7;
-	 angleType = 'RADIANS'
 	amplitude = new p5.Amplitude();
 	amplitudes = [];
 	for (var i = 0; i < 512; i++)
