@@ -5,10 +5,8 @@ function ParticleWave(){
 
     push();
     
-    this.draw =function(){
-      stroke(255);
-      ellipse(width / 2, height / 2, 3,);
-
+    this.draw =function()
+    {
       translate(width/2, height/2);
       
       // Beat detection
@@ -20,6 +18,7 @@ function ParticleWave(){
       
       //Create the waveform circle
       stroke(255);
+      strokeWeight(2);
       noFill();
       for (var t = -1; t <= 1; t+= 2)
       {
@@ -35,25 +34,25 @@ function ParticleWave(){
         endShape()
       }
 
-
-      
-      
       //Draw a particle every new frame
       var p = new Particle();
       particles.push(p);
 
-      for (var j = particles.length - 1; j >= 0; j--){
-        if (!particles[j].edges()){
+      for (var j = particles.length - 1; j >= 0; j--)
+      {
+        if (!particles[j].edges())
+        {
           particles[j].update(amp > 230);
           particles[j].show();
         }
-        else{
+        else
+        {
           particles.splice(j, 1);
         }
-  }
-      
-    } //draw
-
+      }  
+    }
+    pop();
+    
     //Particle generator
     class Particle {
       constructor(){
@@ -61,9 +60,9 @@ function ParticleWave(){
         this.vel = createVector(0, 0);
         this.acc = this.pos.copy().mult(random(0.0001, 0.00001));
     
-        this.w = random(2, 5);
+        this.w = random(4, 10);
     
-        this.color = 255;//[random(1, 255),random(1, 255),random(1, 255)];
+        this.color = [random(1, 255),random(1, 255),random(1, 255)];
       }
     
       //Make the particles move faster or slower depending on the amplitude of the track
@@ -92,5 +91,5 @@ function ParticleWave(){
         ellipse(this.pos.x, this.pos.y, this.w);
       }
     }
-    pop();
+    
 }
