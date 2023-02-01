@@ -17,7 +17,7 @@ function ParticleWave(){
       var wave = fourier.waveform();
       
       //Create the waveform circle
-      stroke(255);
+      stroke(255, 16, 240); //neon pink
       strokeWeight(2);
       noFill();
       for (var t = -1; t <= 1; t+= 2)
@@ -33,6 +33,7 @@ function ParticleWave(){
         }
         endShape()
       }
+      
 
       //Draw a particle every new frame
       var p = new Particle();
@@ -62,7 +63,7 @@ function ParticleWave(){
     
         this.w = random(4, 10);
     
-        this.color = [random(1, 255),random(1, 255),random(1, 255)];
+        this.color = [random(1, 200),0,random(1, 200)];
       }
     
       //Make the particles move faster or slower depending on the amplitude of the track
